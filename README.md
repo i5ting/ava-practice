@@ -36,8 +36,7 @@ https://github.com/sindresorhus/ava
 ## hook
 
 
-最简单的回调
-
+最简单的回调，注意写法，`test.cb`意味着这是需要调用`t.end()`才能结束，对于测试异步方法非常好用
 
 ```
 test.cb('#register()', t => {
