@@ -36,6 +36,20 @@ https://github.com/sindresorhus/ava
 ## hook
 
 
+最简单的回调
+
+
+```
+test.cb('#register()', t => {
+  user.save((err, u) => {
+    console.log(err)
+    console.log('u=' + u)
+    t.true(u.password.length > 50)
+    t.end()
+  })
+});
+```
+
 下面例子中，保证在测试save方法之前，执行完成before。也就是说，执行before等待2秒，然后再开始跑其他测试。
 
 ```
@@ -82,3 +96,27 @@ db.connection.on("open", function () {
 });
 
 ```
+
+
+## 测试覆盖率
+
+https://github.com/bcoe/nyc
+
+
+Just install both:
+
+```
+$ npm install --save-dev nyc ava
+```
+
+They you can add this to package.json:
+
+```
+"scripts": {
+  "test": "nyc ava"
+}
+```
+
+集成其他badge也很简单，看起文档即可
+
+
