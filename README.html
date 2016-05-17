@@ -1,0 +1,258 @@
+
+	    <html>
+	      <head>
+				  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	        <title>README</title>
+					
+					<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+					<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+					<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+			
+				  <style>
+					pre {
+					    counter-reset: line-numbering;
+					    border: solid 1px #d9d9d9;
+					    border-radius: 0;
+					    background: #fff;
+					    padding: 0;
+					    line-height: 23px;
+					    margin-bottom: 30px;
+					    white-space: pre;
+					    overflow-x: auto;
+					    word-break: inherit;
+					    word-wrap: inherit;
+					}
+
+					pre a::before {
+					  content: counter(line-numbering);
+					  counter-increment: line-numbering;
+					  padding-right: 1em; /* space after numbers */
+					  width: 25px;
+					  text-align: right;
+					  opacity: 0.7;
+					  display: inline-block;
+					  color: #aaa;
+					  background: #eee;
+					  margin-right: 16px;
+					  padding: 2px 10px;
+					  font-size: 13px;
+					  -webkit-touch-callout: none;
+					  -webkit-user-select: none;
+					  -khtml-user-select: none;
+					  -moz-user-select: none;
+					  -ms-user-select: none;
+					  user-select: none;
+					}
+
+					pre a:first-of-type::before {
+					  padding-top: 10px;
+					}
+
+					pre a:last-of-type::before {
+					  padding-bottom: 10px;
+					}
+
+					pre a:only-of-type::before {
+					  padding: 10px;
+					}
+			
+					.highlight { background-color: #ffffcc } /* RIGHT */
+					</style>
+	      </head>
+	      <body>
+				  <div>
+							<div style='width:25%;'>
+									<ul id="tree" class="ztree" style='width:100%'>
+		
+									</ul>
+							</div>
+			        <div id='readme' style='width:70%;margin-left:20%;'>
+			          	<article class='markdown-body'>
+			            	<style>.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f0f0f0; }
+.highlight .c { color: #60a0b0; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #007020; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #60a0b0; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #007020 } /* Comment.Preproc */
+.highlight .c1 { color: #60a0b0; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #60a0b0; background-color: #fff0f0 } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #007020; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #007020; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #007020; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #007020 } /* Keyword.Pseudo */
+.highlight .kr { color: #007020; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #902000 } /* Keyword.Type */
+.highlight .m { color: #40a070 } /* Literal.Number */
+.highlight .s { color: #4070a0 } /* Literal.String */
+.highlight .na { color: #4070a0 } /* Name.Attribute */
+.highlight .nb { color: #007020 } /* Name.Builtin */
+.highlight .nc { color: #0e84b5; font-weight: bold } /* Name.Class */
+.highlight .no { color: #60add5 } /* Name.Constant */
+.highlight .nd { color: #555555; font-weight: bold } /* Name.Decorator */
+.highlight .ni { color: #d55537; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #007020 } /* Name.Exception */
+.highlight .nf { color: #06287e } /* Name.Function */
+.highlight .nl { color: #002070; font-weight: bold } /* Name.Label */
+.highlight .nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #062873; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #bb60d5 } /* Name.Variable */
+.highlight .ow { color: #007020; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #40a070 } /* Literal.Number.Bin */
+.highlight .mf { color: #40a070 } /* Literal.Number.Float */
+.highlight .mh { color: #40a070 } /* Literal.Number.Hex */
+.highlight .mi { color: #40a070 } /* Literal.Number.Integer */
+.highlight .mo { color: #40a070 } /* Literal.Number.Oct */
+.highlight .sb { color: #4070a0 } /* Literal.String.Backtick */
+.highlight .sc { color: #4070a0 } /* Literal.String.Char */
+.highlight .sd { color: #4070a0; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #4070a0 } /* Literal.String.Double */
+.highlight .se { color: #4070a0; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #4070a0 } /* Literal.String.Heredoc */
+.highlight .si { color: #70a0d0; font-style: italic } /* Literal.String.Interpol */
+.highlight .sx { color: #c65d09 } /* Literal.String.Other */
+.highlight .sr { color: #235388 } /* Literal.String.Regex */
+.highlight .s1 { color: #4070a0 } /* Literal.String.Single */
+.highlight .ss { color: #517918 } /* Literal.String.Symbol */
+.highlight .bp { color: #007020 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #bb60d5 } /* Name.Variable.Class */
+.highlight .vg { color: #bb60d5 } /* Name.Variable.Global */
+.highlight .vi { color: #bb60d5 } /* Name.Variable.Instance */
+.highlight .il { color: #40a070 } /* Literal.Number.Integer.Long */</style>
+<h1>ava-practice</h1>
+
+<h2>ava 是什么？</h2>
+
+<p>未来的测试运行器</p>
+
+<p>https://github.com/sindresorhus/ava</p>
+
+<p>简单的说ava是mocha的替代品，</p>
+
+<ul>
+<li>es6语法支持更好，对aysnc/await有支持</li>
+<li>执行效率更高，使用io并发，就必须保证测试的原子性</li>
+<li>语义上更简单，集众家之长</li>
+</ul>
+
+<p>虽然 JavaScript 是单线程，但在 Node.js 里由于其异步的特性使得 IO 可以并行。AVA 利用这个优点让你的测试可以并发执行，这对于 IO 繁重的测试特别有用。另外，测试文件可以在不同的进程里并行运行，让每一个测试文件可以获得更好的性能和独立的环境。在 Pageres 项目中从 Mocha切换 到 AVA 让测试时间从 31 秒下降到 11 秒。测试并发执行强制你写原子测试，意味着测试不需要依赖全局状态或者其他测试的状态，这是一件非常好的事情。</p>
+
+<h2>为什么要用 AVA?</h2>
+
+<ul>
+<li>轻量和高效</li>
+<li>简单的测试语法</li>
+<li>并发运行测试</li>
+<li>强制编写原子测试</li>
+<li>没有隐藏的全局变量</li>
+<li>为每个测试文件隔离环境</li>
+<li>用 ES2015 编写测试</li>
+<li>支持 Promise</li>
+<li>支持 Generator</li>
+<li>支持 Async</li>
+<li>支持 Observable</li>
+<li>强化断言信息</li>
+<li>可选的 TAP 输出显示</li>
+<li>简明的堆栈跟踪</li>
+</ul>
+
+<h2>hook</h2>
+
+<p>最简单的回调，注意写法，<code>test.cb</code>意味着这是需要调用<code>t.end()</code>才能结束，对于测试异步方法非常好用</p>
+<div class="highlight"><pre><span class="vg">test</span><span class="o">.</span><span class="vg">cb</span><span class="p">(</span><span class="c1">&#39;#register()&#39;, t =&gt; {</span>
+<span class="w">  </span><span class="vg">user</span><span class="o">.</span><span class="vg">save</span><span class="p">((</span><span class="vg">err</span><span class="p">,</span><span class="w"> </span><span class="vg">u</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="vg">console</span><span class="o">.</span><span class="vg">log</span><span class="p">(</span><span class="vg">err</span><span class="p">)</span>
+<span class="w">    </span><span class="vg">console</span><span class="o">.</span><span class="vg">log</span><span class="p">(</span><span class="c1">&#39;u=&#39; + u)</span>
+<span class="w">    </span><span class="vg">t</span><span class="o">.</span><span class="vg">true</span><span class="p">(</span><span class="vg">u</span><span class="o">.</span><span class="vg">password</span><span class="o">.</span><span class="vg">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="il">50</span><span class="p">)</span>
+<span class="w">    </span><span class="vg">t</span><span class="o">.</span><span class="vg">end</span><span class="p">()</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">});</span>
+</pre></div>
+<p>下面例子中，保证在测试save方法之前，执行完成before。也就是说，执行before等待2秒，然后再开始跑其他测试。</p>
+<div class="highlight"><pre><span class="vg">test</span><span class="o">.</span><span class="vg">before</span><span class="o">.</span><span class="vg">cb</span><span class="p">((</span><span class="vg">t</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="vg">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="vg">t</span><span class="o">.</span><span class="vg">end</span><span class="p">();</span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="il">2000</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="vg">test</span><span class="p">(</span><span class="c1">&#39;#save()&#39;, t =&gt; {</span>
+<span class="w">  </span><span class="vg">let</span><span class="w"> </span><span class="vg">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">new</span><span class="w"> </span><span class="vg">User</span><span class="p">({</span>
+<span class="w">    </span><span class="nl">username:</span><span class="w"> </span><span class="c1">&#39;i5ting&#39;,</span>
+<span class="w">    </span><span class="nl">password:</span><span class="w"> </span><span class="c1">&#39;0123456789&#39;</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="vg">user</span><span class="o">.</span><span class="vg">save</span><span class="p">((</span><span class="vg">err</span><span class="p">,</span><span class="w"> </span><span class="vg">u</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="vg">if</span><span class="w"> </span><span class="p">(</span><span class="vg">err</span><span class="p">)</span><span class="w"> </span><span class="vg">log</span><span class="p">(</span><span class="vg">err</span><span class="p">)</span>
+<span class="w">    </span><span class="vg">t</span><span class="o">.</span><span class="vg">is</span><span class="p">(</span><span class="vg">u</span><span class="o">.</span><span class="vg">username</span><span class="p">,</span><span class="w"> </span><span class="c1">&#39;i5ting&#39;);</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+<h2>db</h2>
+
+<h3>每次连接数据库成功后，最好是dropDatabase</h3>
+<div class="highlight"><pre><span class="vg">var</span><span class="w"> </span><span class="vg">mongoose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">require</span><span class="p">(</span><span class="s2">&quot;mongoose&quot;</span><span class="p">);</span>
+
+<span class="o">//</span><span class="w"> </span><span class="err">核心代码，是否开启测试</span>
+<span class="vg">mongoose</span><span class="o">.</span><span class="vg">set</span><span class="p">(</span><span class="c1">&#39;debug&#39;, false);</span>
+
+<span class="vg">var</span><span class="w"> </span><span class="vg">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">mongoose</span><span class="o">.</span><span class="vg">connect</span><span class="p">(</span><span class="s2">&quot;mongodb://127.0.0.1:27017/db_helloworld&quot;</span><span class="p">);</span><span class="w"> </span>
+
+<span class="vg">db</span><span class="o">.</span><span class="vg">connection</span><span class="o">.</span><span class="vg">on</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">,</span><span class="w"> </span><span class="vg">function</span><span class="w"> </span><span class="p">(</span><span class="vg">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">  </span><span class="vg">console</span><span class="o">.</span><span class="vg">log</span><span class="p">(</span><span class="s2">&quot;数据库连接失败：&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="vg">error</span><span class="p">);</span><span class="w"> </span>
+<span class="p">});</span><span class="w"> </span>
+
+<span class="vg">db</span><span class="o">.</span><span class="vg">connection</span><span class="o">.</span><span class="vg">on</span><span class="p">(</span><span class="s2">&quot;open&quot;</span><span class="p">,</span><span class="w"> </span><span class="vg">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">  </span><span class="vg">console</span><span class="o">.</span><span class="vg">log</span><span class="p">(</span><span class="s2">&quot;数据库连接成功&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="vg">mongoose</span><span class="o">.</span><span class="vg">connection</span><span class="o">.</span><span class="vg">db</span><span class="o">.</span><span class="vg">dropDatabase</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
+<h2>测试覆盖率</h2>
+
+<p>https://github.com/bcoe/nyc</p>
+
+<p>Just install both:</p>
+<div class="highlight"><pre><span class="nv">$ </span>npm install --save-dev nyc ava
+</pre></div>
+<p>They you can add this to package.json:</p>
+<div class="highlight"><pre><span class="s2">&quot;scripts&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;test&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;nyc ava&quot;</span>
+<span class="p">}</span>
+</pre></div>
+<p>集成其他badge也很简单，看起文档即可</p>
+
+			          	</article>
+			        </div>
+					</div>
+	      </body>
+	    </html>
+			<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+			<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+			<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+      <script type="text/javascript" src="toc/toc_conf.js"></script>
+      
+			<SCRIPT type="text/javascript" >
+			<!--
+			$(document).ready(function(){
+          var css_conf = eval(markdown_panel_style);
+          $('#readme').css(css_conf)
+          
+          var conf = eval(jquery_ztree_toc_opts);
+  				$('#tree').ztree_toc(conf);
+
+				
+			});
+			//-->
+			</SCRIPT>
+	  
