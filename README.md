@@ -32,6 +32,11 @@ https://github.com/sindresorhus/ava
 - 可选的 TAP 输出显示
 - 简明的堆栈跟踪
 
+## AVS VS Mocha 
+
+![Ava Vs Mocha](img/ava-vs-mocha.png)
+
+[origin](https://github.com/koajs/koa/issues/703)
 
 ## hook
 
