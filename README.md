@@ -174,6 +174,6 @@ They you can add this to package.json:
 }
 ```
 
-集成其他badge也很简单，看起文档即可
+集成其他badge也很简单，看它的文档即可
 
 
