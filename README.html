@@ -205,6 +205,20 @@
 <span class="w">  </span><span class="p">});</span>
 <span class="p">});</span>
 </pre></div>
+<h2>Generator 函数支持</h2>
+
+<p>AVA comes with built-in support for generator functions.</p>
+<div class="highlight"><pre><span class="vg">test</span><span class="p">(</span><span class="vg">function</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="vg">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="vg">const</span><span class="w"> </span><span class="vg">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">yield</span><span class="w"> </span><span class="vg">generatorFn</span><span class="p">();</span>
+<span class="w">    </span><span class="vg">t</span><span class="o">.</span><span class="vg">true</span><span class="p">(</span><span class="vg">value</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+<p>具体在mongoose里的generator里使用</p>
+<div class="highlight"><pre><span class="vg">test</span><span class="p">(</span><span class="c1">&#39;#save()&#39;, function * (t) {</span>
+<span class="w">  </span><span class="vg">var</span><span class="w"> </span><span class="vg">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">yield</span><span class="w"> </span><span class="vg">User</span><span class="o">.</span><span class="vg">create</span><span class="p">(</span><span class="vg">user</span><span class="p">)</span>
+<span class="w">  </span><span class="vg">t</span><span class="o">.</span><span class="vg">is</span><span class="p">(</span><span class="vg">u</span><span class="o">.</span><span class="vg">username</span><span class="p">,</span><span class="w"> </span><span class="c1">&#39;i5ting&#39;);</span>
+<span class="p">});</span>
+</pre></div>
 <h2>db</h2>
 
 <h3>每次连接数据库成功后，最好是dropDatabase</h3>
