@@ -205,7 +205,24 @@
 <span class="w">  </span><span class="p">});</span>
 <span class="p">});</span>
 </pre></div>
-<h2>Generator 函数支持</h2>
+<h2>Control flow</h2>
+
+<ul>
+<li>Promise</li>
+<li>Generator</li>
+<li>Async/await</li>
+</ul>
+
+<h3>Promise 支持</h3>
+
+<p>If you return a promise in the test you don&#39;t need to explicitly end the test as it will end when the promise resolves.</p>
+<div class="highlight"><pre><span class="vg">test</span><span class="p">(</span><span class="vg">t</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="vg">return</span><span class="w"> </span><span class="vg">somePromise</span><span class="p">()</span><span class="o">.</span><span class="vg">then</span><span class="p">(</span><span class="vg">result</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="vg">t</span><span class="o">.</span><span class="vg">is</span><span class="p">(</span><span class="vg">result</span><span class="p">,</span><span class="w"> </span><span class="c1">&#39;unicorn&#39;);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+<h3>Generator 函数支持</h3>
 
 <p>AVA comes with built-in support for generator functions.</p>
 <div class="highlight"><pre><span class="vg">test</span><span class="p">(</span><span class="vg">function</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="vg">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -217,6 +234,20 @@
 <div class="highlight"><pre><span class="vg">test</span><span class="p">(</span><span class="c1">&#39;#save()&#39;, function * (t) {</span>
 <span class="w">  </span><span class="vg">var</span><span class="w"> </span><span class="vg">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">yield</span><span class="w"> </span><span class="vg">User</span><span class="o">.</span><span class="vg">create</span><span class="p">(</span><span class="vg">user</span><span class="p">)</span>
 <span class="w">  </span><span class="vg">t</span><span class="o">.</span><span class="vg">is</span><span class="p">(</span><span class="vg">u</span><span class="o">.</span><span class="vg">username</span><span class="p">,</span><span class="w"> </span><span class="c1">&#39;i5ting&#39;);</span>
+<span class="p">});</span>
+</pre></div>
+<h3>Async/await支持</h3>
+
+<p>AVA comes with built-in support for async functions (async/await).</p>
+<div class="highlight"><pre><span class="vg">test</span><span class="p">(</span><span class="vg">async</span><span class="w"> </span><span class="vg">function</span><span class="w"> </span><span class="p">(</span><span class="vg">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="vg">const</span><span class="w"> </span><span class="vg">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">await</span><span class="w"> </span><span class="vg">promiseFn</span><span class="p">();</span>
+<span class="w">    </span><span class="vg">t</span><span class="o">.</span><span class="vg">true</span><span class="p">(</span><span class="vg">value</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="o">//</span><span class="w"> </span><span class="vg">async</span><span class="w"> </span><span class="vg">arrow</span><span class="w"> </span><span class="vg">function</span>
+<span class="vg">test</span><span class="p">(</span><span class="vg">async</span><span class="w"> </span><span class="vg">t</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="vg">const</span><span class="w"> </span><span class="vg">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">await</span><span class="w"> </span><span class="vg">promiseFn</span><span class="p">();</span>
+<span class="w">    </span><span class="vg">t</span><span class="o">.</span><span class="vg">true</span><span class="p">(</span><span class="vg">value</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 <h2>db</h2>
