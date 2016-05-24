@@ -76,6 +76,25 @@ test('#save()', t => {
 });
 ```
 
+## Generator 函数支持
+
+AVA comes with built-in support for generator functions.
+
+```
+test(function * (t) {
+    const value = yield generatorFn();
+    t.true(value);
+});
+```
+
+具体在mongoose里的generator里使用
+
+```
+test('#save()', function * (t) {
+  var u = yield User.create(user)
+  t.is(u.username, 'i5ting');
+});
+```
 
 ## db
 
