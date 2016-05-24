@@ -76,7 +76,24 @@ test('#save()', t => {
 });
 ```
 
-## Generator 函数支持
+## Control flow
+
+- Promise
+- Generator
+- Async/await
+
+### Promise 支持
+
+If you return a promise in the test you don't need to explicitly end the test as it will end when the promise resolves.
+
+```
+test(t => {
+    return somePromise().then(result => {
+        t.is(result, 'unicorn');
+    });
+});
+```
+### Generator 函数支持
 
 AVA comes with built-in support for generator functions.
 
@@ -93,6 +110,23 @@ test(function * (t) {
 test('#save()', function * (t) {
   var u = yield User.create(user)
   t.is(u.username, 'i5ting');
+});
+```
+
+### Async/await支持
+
+AVA comes with built-in support for async functions (async/await).
+
+```
+test(async function (t) {
+    const value = await promiseFn();
+    t.true(value);
+});
+
+// async arrow function
+test(async t => {
+    const value = await promiseFn();
+    t.true(value);
 });
 ```
 
