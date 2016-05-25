@@ -125,6 +125,14 @@ test('exec()', function * (t) {
     console.log(commit)
     t.true(commit == 1);
 });
+
+test('exec2()', function * (t) {
+  var result = yield exec('ls -alt')
+  
+  console.log(result.trim().match(/(gitignore)/))
+  
+  t.true(result.trim().match(/(gitignore)/).length > 1);
+});
 ```
 
 ### Async/await支持
