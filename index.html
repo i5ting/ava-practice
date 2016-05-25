@@ -319,8 +319,23 @@
 </pre></div>
 <h2>hook</h2>
 
+<p>test方法默认是顺序执行，如果里面是顺序执行的，那么它是正常的。如果里面是异步方法呢？结果是test执行完了，而异步方法还在跑，这样的结果是，这个测试怎么跑都是正确的，因为没有走断言。。。。</p>
+
+<p>演示代码如下</p>
+<div class="highlight"><pre><span class="vg">test</span><span class="p">(</span><span class="c1">&#39;#register()&#39;, t =&gt; {</span>
+<span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="err">此方法是异步的，保存需要时间</span>
+<span class="w">  </span><span class="vg">user</span><span class="o">.</span><span class="vg">save</span><span class="p">((</span><span class="vg">err</span><span class="p">,</span><span class="w"> </span><span class="vg">u</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="vg">console</span><span class="o">.</span><span class="vg">log</span><span class="p">(</span><span class="vg">err</span><span class="p">)</span>
+<span class="w">    </span><span class="vg">console</span><span class="o">.</span><span class="vg">log</span><span class="p">(</span><span class="c1">&#39;u=&#39; + u)</span>
+<span class="w">    </span><span class="vg">t</span><span class="o">.</span><span class="vg">true</span><span class="p">(</span><span class="vg">u</span><span class="o">.</span><span class="vg">password</span><span class="o">.</span><span class="vg">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="il">50</span><span class="p">)</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">});</span>
+</pre></div>
+<p>当test完成，user.save还没完成，结果0断言，测试结果显示成功。。。这是非常典型的例子。</p>
+
 <p>最简单的回调，注意写法，<code>test.cb</code>意味着这是需要调用<code>t.end()</code>才能结束，对于测试异步方法非常好用</p>
 <div class="highlight"><pre><span class="vg">test</span><span class="o">.</span><span class="vg">cb</span><span class="p">(</span><span class="c1">&#39;#register()&#39;, t =&gt; {</span>
+<span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="err">此方法是异步的，保存需要时间</span>
 <span class="w">  </span><span class="vg">user</span><span class="o">.</span><span class="vg">save</span><span class="p">((</span><span class="vg">err</span><span class="p">,</span><span class="w"> </span><span class="vg">u</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="vg">console</span><span class="o">.</span><span class="vg">log</span><span class="p">(</span><span class="vg">err</span><span class="p">)</span>
 <span class="w">    </span><span class="vg">console</span><span class="o">.</span><span class="vg">log</span><span class="p">(</span><span class="c1">&#39;u=&#39; + u)</span>
@@ -352,6 +367,8 @@
 <span class="w">  </span><span class="p">});</span>
 <span class="p">});</span>
 </pre></div>
+<p>其他cb方法可依此类推</p>
+
 <h2>Control flow</h2>
 
 <ul>
