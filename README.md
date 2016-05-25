@@ -205,3 +205,4 @@ They you can add this to package.json:
 ## 使用ava的开源项目推荐
 
 - [cssnano](https://github.com/ben-eb/cssnano/tree/master/src/__tests__)
+- [postcss-discard-comments](https://github.com/ben-eb/postcss-discard-comments/blob/master/src/__tests__/index.js)
