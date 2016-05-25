@@ -163,10 +163,28 @@ test('assert with chai', t => {
 ## hook
 
 
+test方法默认是顺序执行，如果里面是顺序执行的，那么它是正常的。如果里面是异步方法呢？结果是test执行完了，而异步方法还在跑，这样的结果是，这个测试怎么跑都是正确的，因为没有走断言。。。。
+
+演示代码如下
+
+```
+test('#register()', t => {
+  // 此方法是异步的，保存需要时间
+  user.save((err, u) => {
+    console.log(err)
+    console.log('u=' + u)
+    t.true(u.password.length > 50)
+  })
+});
+```
+
+当test完成，user.save还没完成，结果0断言，测试结果显示成功。。。这是非常典型的例子。
+
 最简单的回调，注意写法，`test.cb`意味着这是需要调用`t.end()`才能结束，对于测试异步方法非常好用
 
 ```
 test.cb('#register()', t => {
+  // 此方法是异步的，保存需要时间
   user.save((err, u) => {
     console.log(err)
     console.log('u=' + u)
@@ -200,6 +218,8 @@ test('#save()', t => {
   });
 });
 ```
+
+其他cb方法可依此类推
 
 ## Control flow
 
