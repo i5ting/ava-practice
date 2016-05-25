@@ -236,6 +236,17 @@
 <span class="w">  </span><span class="vg">t</span><span class="o">.</span><span class="vg">is</span><span class="p">(</span><span class="vg">u</span><span class="o">.</span><span class="vg">username</span><span class="p">,</span><span class="w"> </span><span class="c1">&#39;i5ting&#39;);</span>
 <span class="p">});</span>
 </pre></div>
+<p>测试console.log或者其他终端输出内容，推荐使用co-exec，然后将结果正则匹配就好了</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">test</span> <span class="nn">from</span> <span class="s">&#39;ava&#39;</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="k">exec</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s">&#39;co-exec&#39;</span><span class="p">);</span>
+
+<span class="n">test</span><span class="p">(</span><span class="s">&#39;exec()&#39;</span><span class="p">,</span> <span class="n">function</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">var</span> <span class="n">commit</span> <span class="o">=</span> <span class="k">yield</span> <span class="k">exec</span><span class="p">(</span><span class="s">&#39;ls -alt|grep .gitignore|wc -l&#39;</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">commit</span><span class="p">)</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">true</span><span class="p">(</span><span class="n">commit</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
 <h3>Async/await支持</h3>
 
 <p>AVA comes with built-in support for async functions (async/await).</p>
@@ -281,7 +292,7 @@
 <span class="w">  </span><span class="s2">&quot;test&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;nyc ava&quot;</span>
 <span class="p">}</span>
 </pre></div>
-<p>集成其他badge也很简单，看起文档即可</p>
+<p>集成其他badge也很简单，看它的文档即可</p>
 
 			          	</article>
 			        </div>
