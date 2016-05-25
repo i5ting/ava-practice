@@ -137,7 +137,7 @@
 
 <p>未来的测试运行器</p>
 
-<p>https://github.com/sindresorhus/ava</p>
+<p>https://github.com/avajs/ava</p>
 
 <p>简单的说ava是mocha的替代品，</p>
 
@@ -174,6 +174,149 @@
 
 <p><a href="https://github.com/koajs/koa/issues/703">origin</a></p>
 
+<h2>断言</h2>
+
+<p>ava支持的断言都比较简单，总体来说是抄自tap和tape，除了<a href="https://github.com/avajs/ava#assertion-planning">plan方法</a>外。</p>
+
+<ul>
+<li>.pass([message])</li>
+</ul>
+
+<p>Passing assertion.</p>
+
+<ul>
+<li>.fail([message])</li>
+</ul>
+
+<p>Failing assertion.</p>
+
+<ul>
+<li>.truthy(value, [message])</li>
+</ul>
+
+<p>Assert that value is truthy.</p>
+
+<ul>
+<li>.falsy(value, [message])</li>
+</ul>
+
+<p>Assert that value is falsy.</p>
+
+<ul>
+<li>.true(value, [message])</li>
+</ul>
+
+<p>Assert that value is true.</p>
+
+<ul>
+<li>.false(value, [message])</li>
+</ul>
+
+<p>Assert that value is false.</p>
+
+<ul>
+<li>.is(value, expected, [message])</li>
+</ul>
+
+<p>Assert that value is equal to expected.</p>
+
+<ul>
+<li>.not(value, expected, [message])</li>
+</ul>
+
+<p>Assert that value is not equal to expected.</p>
+
+<ul>
+<li>.deepEqual(value, expected, [message])</li>
+</ul>
+
+<p>Assert that value is deep equal to expected.</p>
+
+<ul>
+<li>.notDeepEqual(value, expected, [message])</li>
+</ul>
+
+<p>Assert that value is not deep equal to expected.</p>
+
+<ul>
+<li>.throws(function|promise, [error, [message]])</li>
+</ul>
+
+<p>Assert that function throws an error, or promise rejects with an error.</p>
+
+<p>error can be a constructor, regex, error message or validation function.</p>
+
+<p>Returns the error thrown by function or the rejection reason of promise.</p>
+
+<ul>
+<li>.notThrows(function|promise, [message])</li>
+</ul>
+
+<p>Assert that function doesn&#39;t throw an error or promise resolves.</p>
+
+<ul>
+<li>.regex(contents, regex, [message])</li>
+</ul>
+
+<p>Assert that contents matches regex.</p>
+
+<ul>
+<li>.ifError(error, [message])</li>
+</ul>
+
+<p>Assert that error is falsy.</p>
+
+<h2>自定义断言</h2>
+
+<p>使用node.js sdk里默认的assert</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">assert</span> <span class="nn">from</span> <span class="s">&#39;assert&#39;</span><span class="p">;</span>
+
+<span class="n">test</span><span class="p">(</span><span class="n">t</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">true</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+<p>使用<a href="http://chaijs.com/">chai</a>断言库</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">test</span> <span class="nn">from</span> <span class="s">&#39;ava&#39;</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="k">assert</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s">&#39;chai&#39;</span><span class="p">)</span><span class="o">.</span><span class="k">assert</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">expect</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s">&#39;chai&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">expect</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">should</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s">&#39;chai&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">should</span><span class="p">();</span>
+
+<span class="n">test</span><span class="p">(</span><span class="s">&#39;expect with chai&#39;</span><span class="p">,</span> <span class="n">t</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="o">//</span> <span class="n">typeof</span>
+  <span class="n">expect</span><span class="p">(</span><span class="s">&#39;test&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">be</span><span class="o">.</span><span class="n">a</span><span class="p">(</span><span class="s">&#39;string&#39;</span><span class="p">);</span>
+  <span class="n">expect</span><span class="p">({</span> <span class="n">foo</span><span class="p">:</span> <span class="s">&#39;bar&#39;</span> <span class="p">})</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">be</span><span class="o">.</span><span class="n">an</span><span class="p">(</span><span class="s">&#39;object&#39;</span><span class="p">);</span>
+  <span class="n">expect</span><span class="p">(</span><span class="n">null</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">be</span><span class="o">.</span><span class="n">a</span><span class="p">(</span><span class="s">&#39;null&#39;</span><span class="p">);</span>
+  <span class="n">expect</span><span class="p">(</span><span class="n">undefined</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">be</span><span class="o">.</span><span class="n">an</span><span class="p">(</span><span class="s">&#39;undefined&#39;</span><span class="p">);</span>
+  <span class="n">expect</span><span class="p">(</span><span class="n">new</span> <span class="n">Error</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">be</span><span class="o">.</span><span class="n">an</span><span class="p">(</span><span class="s">&#39;error&#39;</span><span class="p">);</span>
+  <span class="n">expect</span><span class="p">(</span><span class="n">new</span> <span class="n">Float32Array</span><span class="p">())</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">be</span><span class="o">.</span><span class="n">a</span><span class="p">(</span><span class="s">&#39;float32array&#39;</span><span class="p">);</span>
+  <span class="n">expect</span><span class="p">(</span><span class="n">Symbol</span><span class="p">())</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">be</span><span class="o">.</span><span class="n">a</span><span class="p">(</span><span class="s">&#39;symbol&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="n">test</span><span class="p">(</span><span class="s">&#39;should with chai&#39;</span><span class="p">,</span> <span class="n">t</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="n">var</span> <span class="n">foo</span> <span class="o">=</span> <span class="s">&#39;bar&#39;</span>
+  <span class="n">var</span> <span class="n">tea</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">flavors</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+  <span class="p">}</span>
+  <span class="n">foo</span><span class="o">.</span><span class="n">should</span><span class="o">.</span><span class="n">be</span><span class="o">.</span><span class="n">a</span><span class="p">(</span><span class="s">&#39;string&#39;</span><span class="p">);</span>
+  <span class="n">foo</span><span class="o">.</span><span class="n">should</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="s">&#39;bar&#39;</span><span class="p">);</span>
+  <span class="n">foo</span><span class="o">.</span><span class="n">should</span><span class="o">.</span><span class="n">have</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+  <span class="n">tea</span><span class="o">.</span><span class="n">should</span><span class="o">.</span><span class="n">have</span><span class="o">.</span><span class="n">property</span><span class="p">(</span><span class="s">&#39;flavors&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="k">with</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="n">test</span><span class="p">(</span><span class="s">&#39;assert with chai&#39;</span><span class="p">,</span> <span class="n">t</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="n">var</span> <span class="n">foo</span> <span class="o">=</span> <span class="s">&#39;bar&#39;</span>
+  <span class="n">var</span> <span class="n">tea</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">flavors</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+  <span class="p">}</span>
+  <span class="k">assert</span><span class="o">.</span><span class="n">typeOf</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="s">&#39;string&#39;</span><span class="p">);</span>
+  <span class="k">assert</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="s">&#39;bar&#39;</span><span class="p">);</span>
+  <span class="k">assert</span><span class="o">.</span><span class="n">lengthOf</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+  <span class="k">assert</span><span class="o">.</span><span class="n">property</span><span class="p">(</span><span class="n">tea</span><span class="p">,</span> <span class="s">&#39;flavors&#39;</span><span class="p">);</span>
+  <span class="k">assert</span><span class="o">.</span><span class="n">lengthOf</span><span class="p">(</span><span class="n">tea</span><span class="o">.</span><span class="n">flavors</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
 <h2>hook</h2>
 
 <p>最简单的回调，注意写法，<code>test.cb</code>意味着这是需要调用<code>t.end()</code>才能结束，对于测试异步方法非常好用</p>
@@ -186,6 +329,10 @@
 <span class="w">  </span><span class="p">})</span>
 <span class="p">});</span>
 </pre></div>
+<ul>
+<li>t.end() 结束异步调用，仅仅在test.cb()方法里有效</li>
+</ul>
+
 <p>下面例子中，保证在测试save方法之前，执行完成before。也就是说，执行before等待2秒，然后再开始跑其他测试。</p>
 <div class="highlight"><pre><span class="vg">test</span><span class="o">.</span><span class="vg">before</span><span class="o">.</span><span class="vg">cb</span><span class="p">((</span><span class="vg">t</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="vg">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
@@ -246,7 +393,18 @@
     <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">commit</span><span class="p">)</span>
     <span class="n">t</span><span class="o">.</span><span class="n">true</span><span class="p">(</span><span class="n">commit</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
 <span class="p">});</span>
+
+<span class="n">test</span><span class="p">(</span><span class="s">&#39;exec2()&#39;</span><span class="p">,</span> <span class="n">function</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">var</span> <span class="n">result</span> <span class="o">=</span> <span class="k">yield</span> <span class="k">exec</span><span class="p">(</span><span class="s">&#39;ls -alt&#39;</span><span class="p">)</span>
+
+  <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">trim</span><span class="p">()</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="o">/</span><span class="p">(</span><span class="n">gitignore</span><span class="p">)</span><span class="o">/</span><span class="p">))</span>
+
+  <span class="n">t</span><span class="o">.</span><span class="n">true</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">trim</span><span class="p">()</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="o">/</span><span class="p">(</span><span class="n">gitignore</span><span class="p">)</span><span class="o">/</span><span class="p">)</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">regex</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="o">/</span><span class="p">(</span><span class="n">gitignore</span><span class="p">)</span><span class="o">/</span><span class="p">);</span>
+<span class="p">});</span>
 </pre></div>
+<p>还有一个断言t.regex,不过不太容易判断</p>
+
 <h3>Async/await支持</h3>
 
 <p>AVA comes with built-in support for async functions (async/await).</p>
@@ -293,6 +451,18 @@
 <span class="p">}</span>
 </pre></div>
 <p>集成其他badge也很简单，看它的文档即可</p>
+
+<h2>使用ava的开源项目推荐</h2>
+
+<p>找这类的项目最好是从ava开始，找贡献的相关作者，从这些作者的项目里找，基本上是十有八九。</p>
+
+<ul>
+<li><a href="https://github.com/sindresorhus/pageres/blob/master/test/test.js">pageres</a></li>
+<li><a href="https://github.com/postcss/postcss/tree/master/test">postcss</a></li>
+<li><a href="https://github.com/ben-eb/cssnano/tree/master/src/__tests__">cssnano</a></li>
+<li><a href="https://github.com/ben-eb/postcss-discard-comments/blob/master/src/__tests__/index.js">postcss-discard-comments</a></li>
+<li><a href="https://github.com/postcss/postcss-selector-parser/tree/master/src/__tests__">postcss-selector-parser</a></li>
+</ul>
 
 			          	</article>
 			        </div>
