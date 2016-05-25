@@ -5,7 +5,7 @@
 
 未来的测试运行器
 
-https://github.com/sindresorhus/ava
+https://github.com/avajs/ava
 
 简单的说ava是mocha的替代品，
 
@@ -203,6 +203,8 @@ They you can add this to package.json:
 
 
 ## 使用ava的开源项目推荐
+
+找这类的项目最好是从ava开始，找贡献的相关作者，从这些作者的项目里找，基本上是十有八九。
 
 - [pageres](https://github.com/sindresorhus/pageres/blob/master/test/test.js)
 - [postcss](https://github.com/postcss/postcss/tree/master/test)
