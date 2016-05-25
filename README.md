@@ -202,3 +202,6 @@ They you can add this to package.json:
 集成其他badge也很简单，看它的文档即可
 
 
+## 使用ava的开源项目推荐
+
+- [cssnano](https://github.com/ben-eb/cssnano/tree/master/src/__tests__)
