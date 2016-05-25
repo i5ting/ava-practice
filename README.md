@@ -132,8 +132,11 @@ test('exec2()', function * (t) {
   console.log(result.trim().match(/(gitignore)/))
   
   t.true(result.trim().match(/(gitignore)/).length > 1);
+  t.regex(result, /(gitignore)/);
 });
 ```
+
+还有一个断言t.regex,不过不太容易判断
 
 ### Async/await支持
 
