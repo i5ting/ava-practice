@@ -38,6 +38,89 @@ https://github.com/avajs/ava
 
 [origin](https://github.com/koajs/koa/issues/703)
 
+## 断言
+
+ava支持的断言都比较简单，总体来说是抄自tap和tape，除了[plan方法](https://github.com/avajs/ava#assertion-planning)外。
+
+
+- .pass([message])
+
+Passing assertion.
+
+- .fail([message])
+
+Failing assertion.
+
+- .truthy(value, [message])
+
+Assert that value is truthy.
+
+- .falsy(value, [message])
+
+Assert that value is falsy.
+
+- .true(value, [message])
+
+Assert that value is true.
+
+- .false(value, [message])
+
+Assert that value is false.
+
+- .is(value, expected, [message])
+
+Assert that value is equal to expected.
+
+- .not(value, expected, [message])
+
+Assert that value is not equal to expected.
+
+- .deepEqual(value, expected, [message])
+
+Assert that value is deep equal to expected.
+
+- .notDeepEqual(value, expected, [message])
+
+Assert that value is not deep equal to expected.
+
+- .throws(function|promise, [error, [message]])
+
+Assert that function throws an error, or promise rejects with an error.
+
+error can be a constructor, regex, error message or validation function.
+
+Returns the error thrown by function or the rejection reason of promise.
+
+- .notThrows(function|promise, [message])
+
+Assert that function doesn't throw an error or promise resolves.
+
+- .regex(contents, regex, [message])
+
+Assert that contents matches regex.
+
+- .ifError(error, [message])
+
+Assert that error is falsy.
+
+## 自定义断言
+
+使用node.js sdk里默认的assert
+
+```
+import assert from 'assert';
+
+test(t => {
+    assert(true);
+});
+```
+
+使用[chai](http://chaijs.com/)断言库
+
+
+
+
+
 ## hook
 
 
@@ -53,6 +136,9 @@ test.cb('#register()', t => {
   })
 });
 ```
+
+- t.end() 结束异步调用，仅仅在test.cb()方法里有效
+
 
 下面例子中，保证在测试save方法之前，执行完成before。也就是说，执行before等待2秒，然后再开始跑其他测试。
 
