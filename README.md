@@ -204,5 +204,8 @@ They you can add this to package.json:
 
 ## 使用ava的开源项目推荐
 
+- [pageres](https://github.com/sindresorhus/pageres/blob/master/test/test.js)
+- [postcss](https://github.com/postcss/postcss/tree/master/test)
 - [cssnano](https://github.com/ben-eb/cssnano/tree/master/src/__tests__)
 - [postcss-discard-comments](https://github.com/ben-eb/postcss-discard-comments/blob/master/src/__tests__/index.js)
+- [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser/tree/master/src/__tests__)
