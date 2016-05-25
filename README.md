@@ -113,6 +113,20 @@ test('#save()', function * (t) {
 });
 ```
 
+测试console.log或者其他终端输出内容，推荐使用co-exec，然后将结果正则匹配就好了
+
+```
+import test from 'ava';
+
+var exec = require('co-exec');
+
+test('exec()', function * (t) {
+    var commit = yield exec('ls -alt|grep .gitignore|wc -l');
+    console.log(commit)
+    t.true(commit == 1);
+});
+```
+
 ### Async/await支持
 
 AVA comes with built-in support for async functions (async/await).
