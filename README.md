@@ -115,7 +115,7 @@ test(t => {
 });
 ```
 
-使用[chai](http://chaijs.com/)断言库
+使用[chai](http://chaijs.com/)断言库，支持3种风格
 
 ```
 import test from 'ava';
