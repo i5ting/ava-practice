@@ -360,3 +360,14 @@ They you can add this to package.json:
 - [cssnano](https://github.com/ben-eb/cssnano/tree/master/src/__tests__)
 - [postcss-discard-comments](https://github.com/ben-eb/postcss-discard-comments/blob/master/src/__tests__/index.js)
 - [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser/tree/master/src/__tests__)
+
+## FAQ
+
+### 单元测试的测试用例，总是有种无从下手的感觉，有啥好的学习方法分享？
+
+看每个模块的测试，然后照着写就好了
+
+越小的模块的测试看着越简单，是入门佳品
+
+把公司的项目写的像开源项目一样，先加测试，然后加ci，一步一步来就好了。
+
