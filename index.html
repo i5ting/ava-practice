@@ -149,6 +149,12 @@
 
 <p>虽然 JavaScript 是单线程，但在 Node.js 里由于其异步的特性使得 IO 可以并行。AVA 利用这个优点让你的测试可以并发执行，这对于 IO 繁重的测试特别有用。另外，测试文件可以在不同的进程里并行运行，让每一个测试文件可以获得更好的性能和独立的环境。在 Pageres 项目中从 Mocha切换 到 AVA 让测试时间从 31 秒下降到 11 秒。测试并发执行强制你写原子测试，意味着测试不需要依赖全局状态或者其他测试的状态，这是一件非常好的事情。</p>
 
+<h2>历史</h2>
+
+<ul>
+<li>从<a href="https://github.com/avajs/ava/commit/1089a87c2c6e5f99de8a715c41ddb074c2602404">2014年11月19日</a>开始，中间停了好多长时间， 2015年9月8号之后开始大量提交代码</li>
+</ul>
+
 <h2>为什么要用 AVA?</h2>
 
 <ul>
@@ -480,6 +486,16 @@
 <li><a href="https://github.com/ben-eb/postcss-discard-comments/blob/master/src/__tests__/index.js">postcss-discard-comments</a></li>
 <li><a href="https://github.com/postcss/postcss-selector-parser/tree/master/src/__tests__">postcss-selector-parser</a></li>
 </ul>
+
+<h2>FAQ</h2>
+
+<h3>单元测试的测试用例，总是有种无从下手的感觉，有啥好的学习方法分享？</h3>
+
+<p>看每个模块的测试，然后照着写就好了</p>
+
+<p>越小的模块的测试看着越简单，是入门佳品</p>
+
+<p>把公司的项目写的像开源项目一样，先加测试，然后加ci，一步一步来就好了。</p>
 
 			          	</article>
 			        </div>
