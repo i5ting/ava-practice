@@ -42,6 +42,11 @@ https://github.com/avajs/ava
 
 [origin](https://github.com/koajs/koa/issues/703)
 
+其实tj也蛮喜欢ava的
+
+![Tj](img/tj.png)
+
+
 ## 断言
 
 ava支持的断言都比较简单，总体来说是抄自tap和tape，除了[plan方法](https://github.com/avajs/ava#assertion-planning)外。
