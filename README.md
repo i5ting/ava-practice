@@ -379,6 +379,12 @@ test.cb("superkoa()", t => {
 });
 ```
 
+其他选型
+
+
+- [nock:HTTP mocking and expectations library](https://github.com/node-nock/nock)
+- - [request](https://github.com/request/request)
+
 ## 编辑器上的test runner
 
 wallabyjs
@@ -403,6 +409,7 @@ ext install wallaby-vscode
 - [cssnano](https://github.com/ben-eb/cssnano/tree/master/src/__tests__)
 - [postcss-discard-comments](https://github.com/ben-eb/postcss-discard-comments/blob/master/src/__tests__/index.js)
 - [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser/tree/master/src/__tests__)
+- [download](https://github.com/kevva/download)
 
 ## FAQ
 
