@@ -355,6 +355,26 @@ They you can add this to package.json:
 
 集成其他badge也很简单，看它的文档即可
 
+## http api测试
+
+使用supertest配置express比较简单，配置koa稍微麻烦，可以使用superkoa，使用这个模块就可以普通的supertest一样了。
+
+实例
+
+```
+var superkoa = require('superkoa')
+
+test.cb("superkoa()", t => {
+  superkoa('./koa.app.js')
+    .get("/")
+    .expect(200, function (err, res) {
+      t.ifError(err)
+      var userId = res.body.id;
+      t.is(res.text, 'Hello Koa', 'res.text == Hello Koa')
+      t.end()
+    });
+});
+```
 
 ## 使用ava的开源项目推荐
 
