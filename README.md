@@ -379,6 +379,21 @@ test.cb("superkoa()", t => {
 });
 ```
 
+## 编辑器上的test runner
+
+wallabyjs
+
+
+Intelligent and super fast test runner for JavaScript/TypeScript/CoffeeScript.
+
+https://wallabyjs.com/
+
+```
+ext install wallaby-vscode
+```
+
+![](http://wallabyjs.com/assets/img/vsc.gif)
+
 ## 使用ava的开源项目推荐
 
 找这类的项目最好是从ava开始，找贡献的相关作者，从这些作者的项目里找，基本上是十有八九。
