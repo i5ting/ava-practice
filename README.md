@@ -1,5 +1,8 @@
 # ava-practice
 
+## Node.js测试框架
+
+参见 https://www.nodeguy.com/test/ ， 说的还是比较清楚的。
 
 ## ava 是什么？
 
