@@ -383,7 +383,7 @@ test.cb("superkoa()", t => {
 
 
 - [nock:HTTP mocking and expectations library](https://github.com/node-nock/nock)
-- - [request](https://github.com/request/request)
+- [request](https://github.com/request/request)
 
 ## 编辑器上的test runner
 
