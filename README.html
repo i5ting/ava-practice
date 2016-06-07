@@ -479,6 +479,24 @@
 </pre></div>
 <p>集成其他badge也很简单，看它的文档即可</p>
 
+<h2>http api测试</h2>
+
+<p>使用supertest配置express比较简单，配置koa稍微麻烦，可以使用superkoa，使用这个模块就可以普通的supertest一样了。</p>
+
+<p>实例</p>
+<div class="highlight"><pre><span class="vg">var</span><span class="w"> </span><span class="vg">superkoa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">require</span><span class="p">(</span><span class="c1">&#39;superkoa&#39;)</span>
+
+<span class="vg">test</span><span class="o">.</span><span class="vg">cb</span><span class="p">(</span><span class="s2">&quot;superkoa()&quot;</span><span class="p">,</span><span class="w"> </span><span class="vg">t</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="vg">superkoa</span><span class="p">(</span><span class="c1">&#39;./koa.app.js&#39;)</span>
+<span class="w">    </span><span class="o">.</span><span class="vg">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="o">.</span><span class="vg">expect</span><span class="p">(</span><span class="il">200</span><span class="p">,</span><span class="w"> </span><span class="vg">function</span><span class="w"> </span><span class="p">(</span><span class="vg">err</span><span class="p">,</span><span class="w"> </span><span class="vg">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="vg">t</span><span class="o">.</span><span class="vg">ifError</span><span class="p">(</span><span class="vg">err</span><span class="p">)</span>
+<span class="w">      </span><span class="vg">var</span><span class="w"> </span><span class="vg">userId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">res</span><span class="o">.</span><span class="vg">body</span><span class="o">.</span><span class="vg">id</span><span class="p">;</span>
+<span class="w">      </span><span class="vg">t</span><span class="o">.</span><span class="vg">is</span><span class="p">(</span><span class="vg">res</span><span class="o">.</span><span class="vg">text</span><span class="p">,</span><span class="w"> </span><span class="c1">&#39;Hello Koa&#39;, &#39;res.text == Hello Koa&#39;)</span>
+<span class="w">      </span><span class="vg">t</span><span class="o">.</span><span class="vg">end</span><span class="p">()</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 <h2>使用ava的开源项目推荐</h2>
 
 <p>找这类的项目最好是从ava开始，找贡献的相关作者，从这些作者的项目里找，基本上是十有八九。</p>
