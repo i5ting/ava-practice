@@ -534,6 +534,23 @@
 
 <p>把公司的项目写的像开源项目一样，先加测试，然后加ci，一步一步来就好了。</p>
 
+<h3>回复常见提问</h3>
+<div class="highlight"><pre><span class="err">我用了用</span><span class="w"> </span><span class="vg">ava</span><span class="err">，感觉它的</span><span class="w"> </span><span class="vg">test</span><span class="p">(</span><span class="vg">xxx</span><span class="p">)</span><span class="w"> </span><span class="err">跟</span><span class="w"> </span><span class="vg">mocha</span><span class="w"> </span><span class="err">的</span><span class="w"> </span><span class="vg">describe</span><span class="w"> </span><span class="vg">it</span><span class="w"> </span><span class="err">相比还是描述性弱了点，就决定还是继续用</span><span class="w"> </span><span class="vg">mocha</span><span class="w"> </span><span class="err">了。</span>
+<span class="err">而且要求全都可以独立执行，像</span><span class="w"> </span><span class="vg">cnode</span><span class="w"> </span><span class="err">这种项目的测试代码，由于有些数据库状态需要保持，如果每个</span><span class="w"> </span><span class="vg">case</span><span class="w"> </span><span class="err">都能保证独立运行的话，要花的工夫不少，还不如</span><span class="w"> </span><span class="vg">mocha</span><span class="w"> </span><span class="err">那种顺序执行，然后</span><span class="w"> </span><span class="vg">test</span><span class="w"> </span><span class="err">跟</span><span class="w"> </span><span class="vg">test</span><span class="w"> </span><span class="err">之间存在依赖关系。</span>
+
+<span class="err">一些小的地方我也用过</span><span class="w"> </span><span class="vg">ava</span><span class="err">，当对同一个函数，传入三种不同参数的时候（正常，失败，异常）的时候，</span><span class="vg">test</span><span class="p">(</span><span class="vg">xxx</span><span class="p">)</span><span class="w"> </span><span class="err">感觉不好写。</span>
+
+<span class="err">现在如果我写测试的话，应该还是</span><span class="w"> </span><span class="vg">mocha</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="vg">should</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="vg">istanbul</span><span class="w"> </span><span class="err">吧。</span>
+</pre></div>
+<p>回复</p>
+
+<ul>
+<li>描述性弱是设计的初衷不一样的，而 describe it这种属于bdd风格，此时pk的应该是https://github.com/sheerun/ava-spec</li>
+<li>全都可以独立执行，好处是测试速度会比较快，缺点测试写的时候要提前规避，当然这是好习惯的，不过对于遗留系统的测试，还是慎用吧，确实工作量比较大</li>
+<li>ava断言可以随便玩，默认的其实也是借鉴了各大框架里比较好的实践的，不好写倒不至于</li>
+<li>最后，你没有用ava玩generator和async/await来测试，所以感觉不太明显的，哈哈</li>
+</ul>
+
 			          	</article>
 			        </div>
 					</div>
