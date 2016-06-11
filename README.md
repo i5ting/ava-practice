@@ -39,6 +39,99 @@ https://github.com/avajs/ava
 - 可选的 TAP 输出显示
 - 简明的堆栈跟踪
 
+## 测试用例与断言
+
+测试是为了通过测试来验证功能是否正确的一种编程手段。
+
+测试用例指的是针对某一种情况而编写的测试。
+
+测试用例用来验证的测试工具方法称为断言。一般断言，返回值是的boolean值，可以是比较、是否为空，正则等。
+
+下面给出最简单的`AVA`测试用例simple.js
+
+```js
+'use strict'
+
+import test from 'ava'
+
+test('my test', t => {
+  t.is(3, 3)
+})
+```
+
+先按照`AVA`模块
+
+```
+$ npm install --global ava
+```
+
+执行
+
+```
+$ ava -v simple.js
+
+  ✔ my test
+
+  1 test passed [21:51:19]
+```
+
+这里的is方法就是断言，如果返回的是true，则测试通过，显示的就是绿色的，否则测试结果就是红色的。
+
+下面给出一个错误的测试用例falt.js
+
+```js
+'use strict'
+
+import test from 'ava'
+
+test('my test2', t => {
+  t.is(2, 3)
+})
+```
+
+执行
+
+```
+$ ava -v falt.js
+
+  ✖ my test2 2 === 3
+
+  1 test failed [22:06:06]
+
+
+  1. my test2
+  AssertionError: 2 === 3
+    Test.fn (falt.js:4:5)
+
+```
+
+这个时候就是错误的，测试没有通过，即输出结果是红色的。写测试的目的就是为了让它全是红色，修改了代码之后，立即跑测试，测试通过里再提交。如果测试没有通过，你就继续修改，直至变绿为止。
+
+
+一般会把测试丢到npm scripts里
+
+```
+  "scripts": {
+    "test": "ava -v simple.js"
+  },
+```
+
+执行
+
+```
+$ npm test
+
+> getting-start@1.0.0 test /Users/sang/workspace/17koa/book-source/getting-start
+> ava -v simple.js
+
+
+  ✔ my test
+
+  1 test passed [21:52:56]
+
+```
+
+
 ## AVS VS Mocha 
 
 ![Ava Vs Mocha](img/ava-vs-mocha.png)
